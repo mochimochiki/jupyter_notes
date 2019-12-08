@@ -58,7 +58,7 @@ COPY ./notes_dotnet/ ${HOME}/notebooks/
 # ////////////////////////////////////////////
 # Copy package sources(Edit)
 # ////////////////////////////////////////////
-COPY ./nuGet.config ${HOME}/nuget.config
+COPY ./nuget.config ${HOME}/nuget.config
 
 
 
