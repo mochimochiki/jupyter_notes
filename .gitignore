@@ -96,3 +96,7 @@ demofiles/
 test_talk/
 scipy2017/
 demo/
+
+# data
+notes_dotnet/MLNet/data/
+notes_dotnet/MLNet/workspace/

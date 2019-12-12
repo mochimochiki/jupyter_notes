@@ -1,0 +1,25 @@
+version: "2"
+volumes:
+    jupyter-lib:
+        driver: 'local'
+    jupyter-nuget:
+        driver: 'local'
+services:
+  jupyter: # サービス名
+    container_name: jupyter-gcta
+    build: . # 現在のディレクトリのdockerfileから構築
+    image: mochimo/jupyter # イメージ名
+    ports:
+      - "8888:8888" # ポート <host port>:<container port>
+    #user: root # sudoのため
+    volumes:
+      - "../:/home/jovyan/notebooks/" # workディレクトリのマウント
+      - "jupyter-lib:/opt/conda/lib/" # ライブラリのマウント
+      - "jupyter-nuget:/home/jovyan/.nuget"
+    environment:
+      NB_UID: 1000
+      NB_GID: 1000
+      TZ: Asia/Tokyo
+      GRANT_SUDO: "yes" # sudoコマンドを使えるようにする
+    #restart: always # 常に自動で再起動。主にOS起動時に自動起動させるため
+    command: start-notebook.sh --NotebookApp.password='sha1:b7ab372636cd:325de78526755926cabc6dfcfe913f27ce36b6cd' # コンテナ起動時の引数
