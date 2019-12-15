@@ -98,5 +98,5 @@ scipy2017/
 demo/
 
 # data
-notes_dotnet/MLNet/data/
+data/
 notes_dotnet/MLNet/workspace/
